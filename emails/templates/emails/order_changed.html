@@ -1,0 +1,11 @@
+{% extends 'emails/base_email.html' %}
+{% load salutation_name %}
+
+{% block content %}
+<p> Dear <b>{{ order.user|salutation_name }}</b>,</p>
+<p>
+  Your order <b>#{{ order.pk }}</b> is {{ order.status_humanized }}.
+  You can view the details of your order from our site.
+</p> 
+<hr/>
+{% endblock %}

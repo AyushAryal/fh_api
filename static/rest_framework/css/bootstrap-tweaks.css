@@ -1,0 +1,58 @@
+.navbar-brand {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: #fff !important;
+}
+
+.navbar-brand > img {
+  height: 30px;
+  width: auto;
+}
+
+.navbar > .container {
+  padding: 0 3rem;
+  width: 100%;
+}
+
+h1[id^="get-"],
+h2[id^="get-"],
+h3[id^="get-"],
+h4[id^="get-"],
+h5[id^="get-"],
+h6[id^="get-"] {
+  color: #07e;
+}
+
+h1[id^="post-"],
+h2[id^="post-"],
+h3[id^="post-"],
+h4[id^="post-"],
+h5[id^="post-"],
+h6[id^="post-"] {
+  color: #b08;
+}
+
+h1[id^="put-"],
+h2[id^="put-"],
+h3[id^="put-"],
+h4[id^="put-"],
+h5[id^="put-"],
+h6[id^="put-"],
+h1[id^="patch-"],
+h2[id^="patch-"],
+h3[id^="patch-"],
+h4[id^="patch-"],
+h5[id^="patch-"],
+h6[id^="patch-"] {
+  color: #e70;
+}
+
+h1[id^="delete-"],
+h2[id^="delete-"],
+h3[id^="delete-"],
+h4[id^="delete-"],
+h5[id^="delete-"],
+h6[id^="delete-"] {
+  color: #e43;
+}

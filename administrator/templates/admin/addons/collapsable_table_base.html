@@ -1,0 +1,18 @@
+<div class="accordion" id="details-{{instance.pk}}">
+  <div class="accordion-item">
+    <button
+      style="padding: 0.5rem 1.25rem; font-size: 0.8rem"
+      class="accordion-button collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#details-body-{{instance.pk}}"
+      aria-expanded="true"
+      aria-controls="details-body-{{instance.pk}}"
+    >
+      Details
+    </button>
+    <div id="details-body-{{instance.pk}}" class="accordion-collapse collapse">
+      {% block content %} {% endblock %}
+    </div>
+  </div>
+</div>

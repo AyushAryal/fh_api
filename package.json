@@ -1,0 +1,30 @@
+{
+  "name": "admin_website",
+  "version": "1.0.0",
+  "description": "Administrator website",
+  "author": "Gnik Droy",
+  "license": "ISC",
+  "devDependencies": {
+    "@alpinejs/persist": "^3.11.1",
+    "@fortawesome/fontawesome-free": "^6.3.0",
+    "@parcel/transformer-sass": "^2.8.3",
+    "@types/node": "^18.14.2",
+    "alpinejs": "^3.11.1",
+    "bootstrap": "^5.2.3",
+    "chart.js": "^4.2.1",
+    "htmx.org": "^1.8.5",
+    "parcel": "^2.8.3",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "parcel watch",
+    "build": "parcel build"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": "administrator/assets/admin/base.ts",
+  "targets": {
+    "default": {
+      "distDir": "./administrator/static/admin/dist"
+    }
+  }
+}

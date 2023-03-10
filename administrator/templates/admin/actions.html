@@ -1,0 +1,48 @@
+{% load i18n %}
+<style>
+#changelist .actions select {
+  width: 100%;
+}
+</style>
+<div class="actions d-flex flex-column align-self-stretch">
+  {% block actions %}
+    <div class="d-flex flex-wrap">
+    {% block actions-form %}
+    {% for field in action_form %}
+        {% if field.label %}
+            <label class="d-flex flex-grow-1">
+                <span class="d-flex align-items-center">
+                  <i class="fa-solid fa-hammer me-2"></i>
+                  {{ field.label }}
+                </span>
+        {% endif %}
+        
+        {{ field }}
+        
+        {% if field.label %}
+            </label>
+        {% endif %}
+    {% endfor %}
+    {% endblock %}
+
+    {% block actions-submit %}
+    <button type="submit" class="btn btn-primary" title="{% translate "Run the selected action" %}" name="index" value="{{ action_index|default:0 }}"><i class="fa-solid fa-hammer me-2"></i>{% translate "Go" %}</button>
+    {% endblock %}
+    </div>
+
+    <div class="align-self-end">
+    {% block actions-counter %}
+    {% if actions_selection_counter %}
+        <span class="action-counter" data-actions-icnt="{{ cl.result_list|length }}">{{ selection_note }}</span>
+        {% if cl.result_count != cl.result_list|length %}
+        <span class="all hidden">{{ selection_note_all }}</span>
+        <span class="question hidden">
+            <a href="#" title="{% translate "Click here to select the objects across all pages" %}">{% blocktranslate with cl.result_count as total_count %}Select all {{ total_count }} {{ module_name }}{% endblocktranslate %}</a>
+        </span>
+        <span class="clear hidden"><a href="#">{% translate "Clear selection" %}</a></span>
+        {% endif %}
+    {% endif %}
+    {% endblock %}
+    </div>
+  {% endblock %}
+</div>

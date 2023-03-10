@@ -1,0 +1,28 @@
+{% load i18n json %}
+<div class="d-flex flex-column flex-wrap gap-5 bg-white p-2 p-md-5 shadow">
+  <h1 class="text-secondary" style="max-width: 20ch">{{_("Most popular categories")}}</h1>
+  <div class="position-relative">
+    <canvas id="top_categories"></canvas>
+  </div>
+</div>
+
+<script defer>
+  new Chart(document.getElementById("top_categories").getContext("2d"), {
+    type: "radar",
+    data: {
+      labels: {{ labels|json|safe }},
+      datasets: [
+        {
+          label: "{{_('Orders received')}}",
+          data: {{ values|json|safe }},
+          hoverOffset: 4,
+        },
+      ],
+    },
+    options: { 
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1
+    },
+  });
+</script>

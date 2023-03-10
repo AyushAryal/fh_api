@@ -1,0 +1,23 @@
+{% extends 'emails/base_email.html' %}
+
+{% block content %}
+<div style="font-size: 1rem">Dear <b>Admin</b>,</div>
+<div style="margin-top: 1.5rem">
+  A new registration has been made by
+  <i style="color: #563b18"><b>{{ user }}</b></i>
+</div>
+<br />
+Please review the details to verify the user.
+
+<br />
+<div
+  style="margin: 1.5rem auto 2rem auto; text-align: center; font-size: 0.9rem"
+>
+  <a
+    href="https://{{ site.domain }}{% url 'admin:authentication_user_change' user.pk %}"
+    style="cursor: pointer; color: #563b18; text-decoration: underline"
+  >
+    View User Details
+  </a>
+</div>
+{% endblock %}

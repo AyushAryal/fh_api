@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-01 03:29+0545\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\apps.py:11
+msgid "Store"
+msgstr "पसल"
+
+#: .\apps.py:25
+msgid "Customer not approved"
+msgstr "ग्राहक स्वीकृत छैन"
+
+#: .\models.py:21
+msgid "Approved"
+msgstr "स्वीकृत"
+
+#: .\models.py:22
+msgid "Denied"
+msgstr "अस्वीकृत"
+
+#: .\models.py:23 .\models.py:128
+msgid "Pending"
+msgstr "फैसला बांकी"
+
+#: .\models.py:24 .\models.py:131
+msgid "None"
+msgstr "केहि होइन"
+
+#: .\models.py:29
+msgid "Customer profile"
+msgstr "ग्राहक प्रोफाइल"
+
+#: .\models.py:30
+msgid "Customer profiles"
+msgstr "ग्राहक प्रोफाइलहरू"
+
+#: .\models.py:34 .\models.py:140 .\models.py:175 .\models.py:204
+msgid "user"
+msgstr "प्रयोग कर्ता"
+
+#: .\models.py:36 .\models.py:143
+msgid "status"
+msgstr "प्रतिष्ठा"
+
+#: .\models.py:37
+msgid "The registration status of the customer"
+msgstr "ग्राहकको दर्ता स्थिति"
+
+#: .\models.py:38
+msgid "company name"
+msgstr "कम्पनी नाम"
+
+#: .\models.py:39
+msgid "company address"
+msgstr "कम्पनीको ठेगाना"
+
+#: .\models.py:40
+msgid "contact"
+msgstr "सम्पर्क"
+
+#: .\models.py:40
+msgid "Landline/Cell phone number"
+msgstr "ल्यान्डलाइन / सेल फोन नम्बर"
+
+#: .\models.py:42
+msgid "reason for signup"
+msgstr "साइनअपको कारण"
+
+#: .\models.py:43
+msgid "The reason for signup provided by customer"
+msgstr "ग्राहकले प्रदान गरिएको साइनअपको कारण"
+
+#: .\models.py:54
+msgid "Category"
+msgstr "श्रेणी"
+
+#: .\models.py:55
+msgid "Categories"
+msgstr "श्रेजा"
+
+#: .\models.py:58 .\models.py:78
+msgid "name"
+msgstr "नाम"
+
+#: .\models.py:59 .\models.py:80
+msgid "description"
+msgstr "वर्णन"
+
+#: .\models.py:60 .\models.py:112 .\models.py:232
+msgid "image"
+msgstr "चित्र"
+
+#: .\models.py:62 .\models.py:82
+msgid "recommend"
+msgstr "सल्लाह"
+
+#: .\models.py:63
+msgid "If this category is recommended by the store owners"
+msgstr "यदि यो कोटी स्टोर मालिकहरूले सिफारिस गरिएमा"
+
+#: .\models.py:74
+msgid "Item"
+msgstr "वस्तु"
+
+#: .\models.py:75
+msgid "Items"
+msgstr "वस्तुहरू"
+
+#: .\models.py:79
+msgid "subtitle"
+msgstr "सह शिर्षक"
+
+#: .\models.py:83
+msgid "If this item is recommended by the store owners"
+msgstr "यदि यो वस्तु स्टोर मालिकहरूले सिफारिस गरिएमा"
+
+#: .\models.py:84
+msgid "categories"
+msgstr "श्रेजा"
+
+#: .\models.py:92
+msgid "Item variant"
+msgstr "वस्तु भेरियन्ट"
+
+#: .\models.py:93
+msgid "Item variants"
+msgstr "वस्तु भेरियन्ट्स"
+
+#: .\models.py:96
+msgid "item"
+msgstr "वस्तु"
+
+#: .\models.py:97
+msgid "The item this item variant is linked with"
+msgstr "वस्तु भेरियन्टसँग वस्तु विन्डल गरिएको छ"
+
+#: .\models.py:98
+msgid "color"
+msgstr "रंग"
+
+#: .\models.py:106
+msgid "Item variant's image"
+msgstr "वस्तु भेरियन्टको चित्र"
+
+#: .\models.py:107
+msgid "Item variant's images"
+msgstr "वस्तु भेरियन्टको चित्रहरू"
+
+#: .\models.py:110 .\models.py:163 .\models.py:221
+msgid "item variant"
+msgstr "वस्तु भेरियन्ट"
+
+#: .\models.py:111
+msgid "The item variant this image is linked with"
+msgstr "वस्तु प्रकार यो चित्र संग लिंक गरिएको छ"
+
+#: .\models.py:129
+msgid "Delivered"
+msgstr "पठाइएको"
+
+#: .\models.py:130
+msgid "Cancelled"
+msgstr "रद्द गरेको"
+
+#: .\models.py:136
+msgid "Order"
+msgstr "बिल"
+
+#: .\models.py:137
+msgid "Orders"
+msgstr "बिलहरू"
+
+#: .\models.py:141
+msgid "timestamp"
+msgstr "समय माथी"
+
+#: .\models.py:141
+msgid "Date and time the order was placed"
+msgstr "मिति र समय बिलमा राखिएको थियो"
+
+#: .\models.py:157
+msgid "Purchase"
+msgstr "किन्नु"
+
+#: .\models.py:158
+msgid "Purchases"
+msgstr "किन्नु"
+
+#: .\models.py:161
+msgid "order"
+msgstr "मगाउनु"
+
+#: .\models.py:162
+msgid "The order this purchase is linked with"
+msgstr "बिल यो खरीद संग जोडिएको छ"
+
+#: .\models.py:164
+msgid "quantity"
+msgstr "मात्रा"
+
+#: .\models.py:172
+msgid "Cart"
+msgstr "ठेलागाडी"
+
+#: .\models.py:173
+msgid "Carts"
+msgstr "ठेलागाडीहरु"
+
+#: .\models.py:186
+msgid "Cart item"
+msgstr "ठेलागाडी वस्तु"
+
+#: .\models.py:187
+msgid "Cart items"
+msgstr "ठेलागाडी वस्तुहरु"
+
+#: .\models.py:190
+msgid "cart"
+msgstr "ठेलागाडी"
+
+#: .\models.py:191
+msgid "The cart this cart item is linked with"
+msgstr "ठेलागाडी यस ठेलागाडी वस्तु संग लिंक गरिएको छ"
+
+#: .\models.py:201 .\models.py:202
+msgid "Wishlist"
+msgstr "इच्छा सुची"
+
+#: .\models.py:215
+msgid "Wishlist item"
+msgstr "इच्छा सुची वस्तु"
+
+#: .\models.py:216
+msgid "Wishlist items"
+msgstr "इच्छा सुची वस्तुहरु"
+
+#: .\models.py:219
+msgid "wishlist"
+msgstr "इच्छा सुची"
+
+#: .\models.py:220
+msgid "The wishlist this wishlist item is linked with"
+msgstr "इच्छा सुची यो इच्छा सुची वस्तुसँग लिंक गरिएको छ"
+
+#: .\models.py:229
+msgid "Banner image"
+msgstr "ब्यानर चित्र"
+
+#: .\models.py:230
+msgid "Banner images"
+msgstr "ब्यानर चित्रहरु"
+
+#: .\models.py:233
+msgid "Used in mobile devices"
+msgstr "मोबाइल उपकरणहरूमा प्रयोग गरियको"
+
+#: .\models.py:234
+msgid "If this image is used on mobile devices"
+msgstr "यदि यो चित्र मोबाइल उपकरणहरूमा प्रयोग गरिएको छ"
+
+#: .\serializers.py:134 .\serializers.py:169
+msgid "Multiple items with same item_variant"
+msgstr "धेरै वस्तुहरूको उही वस्तु भेरियन्ट"
+
+#: .\views.py:108
+msgid "No customer profile present for this user"
+msgstr "यस प्रयोगकर्ताको लागि कुनै ग्राहक प्रोफाइल अवस्थित छैन"
+
+#: .\views.py:274
+msgid "Cart is empty"
+msgstr "ठेलागाडी खाली छ"

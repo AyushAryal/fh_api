@@ -1,0 +1,9 @@
+{% extends "rest_framework/base.html" %}
+{% load static %}
+
+{% block branding %}
+    <div class="navbar-brand">
+      <img style="filter: brightness(100)" alt="logo" src="{% static 'shared/logo.png' %}" />
+      <span>  {{ request.site.name }} API </span>
+    </div>
+{% endblock %}

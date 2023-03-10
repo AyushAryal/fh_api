@@ -1,0 +1,87 @@
+{% load geticon i18n %}
+
+<style>
+p.app-name-current,
+a.app-name-current,
+a.app-name-current:visited {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+a.app-name-current:hover,
+a.app-name-current:focus {
+  color: var(--secondary);
+  opacity: 0.8;
+}
+
+p.app-name,
+a.app-name,
+a.app-name:visited {
+  color: #eee;
+  text-decoration: none;
+}
+
+a.app-name:hover,
+a.app-name:focus {
+  color: #eee;
+  opacity: 0.8;
+}
+</style>
+
+<div 
+  x-cloak
+  x-data="{ open: $persist(true) }"
+  class="sticky-top"
+  :class="open ? 'p-4': 'p-2'"
+>
+  <button
+    style="top: 50%; right: -1rem;"
+    class="btn btn-dark rounded-circle shadow-none"
+    :class="open ? 'position-absolute' : ''"
+    @click="open = !open"
+  >
+    <i class="fa" :class="open ? 'fa-chevron-left' : 'fa-solid fa-chevron-right'"></i>
+  </button>
+  <div>
+    {# Home icon #}
+    {% url 'admin:index' as home_url %}
+    <div class="mt-1" :class="open ? 'ps-1 pt-3': ''">
+      <a
+        title="{{ _("Home") }}"
+        href="{% url 'admin:index' %}"
+        class="h5 d-flex align-items-center {% if request.get_full_path == home_url %}app-name-current{% else %}app-name{% endif %}"
+        :class="open ? 'gap-2' : 'justify-content-center'"
+      >
+        <i class="fa-solid fa-home fs-6" :class="open ? 'ps-1': 'mt-2'"></i>
+        <span x-show="open">
+          {{ _("Home")|upper }}
+        </span>
+      </a>
+    </div>
+
+    {% for app in app_list %}
+    <div :class="open ? 'ps-1 pt-3': ''">
+      <p
+        title={{ app.name }}
+        class="h5 d-flex align-items-center {% if app.app_url in request.path|urlencode %}app-name-current border-start{% else %}app-name{% endif %}"
+        :class="open ? 'gap-2' : 'justify-content-center'"
+      >
+        <i x-show="open" class="{{ app|appicon }} ps-1 fs-6"></i>
+        <span x-show="open">{{ app.name|upper }}</span>
+      </p>
+      <div class="d-flex flex-column" :class="open ? 'ms-3' : 'align-items-center'">
+        {% for model in app.models %}
+        <a
+          title="{{ model.name }}"
+          href="{{ model.admin_url }}"
+          class="mt-1 text-decoration-none {% if model.admin_url in request.path|urlencode %}app-name-current{% else %}app-name{% endif %}"
+        >
+          <i class="{{ model|modelicon }} fs-6"></i>
+          <span x-show="open" class="px-2">{{ model.name }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

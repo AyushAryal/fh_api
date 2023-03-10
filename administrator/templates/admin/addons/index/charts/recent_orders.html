@@ -1,0 +1,47 @@
+{% load i18n json %}
+<div class="d-flex flex-column flex-wrap gap-5 bg-white p-3 p-sm-5 shadow">
+  <h1 class="text-secondary">
+    {% blocktranslate trimmed with days=orders|length %}
+    Orders in the last {{ days }} days
+    {% endblocktranslate %}
+  </h1>
+  <div class="position-relative">
+    <canvas id="recent_orders"></canvas>
+  </div>
+</div>
+
+<script defer>
+  new Chart(document.getElementById("recent_orders").getContext("2d"), {
+    type: "line",
+    data: {
+      labels: ["{{_('Today')}}", ...[...Array({{ orders|length }}).keys()].slice(1)].map((x) => x.toString()).reverse(),
+      datasets: [
+        {
+          label: "{{_('Orders')}}",
+          data: {{ orders|json|safe }},
+          fill: true,
+          tension: 0.4,
+        },
+      ],
+    },
+    options: { 
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "{{_('Day before today')}}"
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: "{{_('Orders')}}"
+          }
+        }
+      }
+    }
+  });
+</script>

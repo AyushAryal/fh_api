@@ -1,0 +1,35 @@
+{% load i18n json %}
+<div class="d-flex flex-column flex-wrap gap-5 bg-white p-2 p-md-5 shadow">
+  <h1 class="text-secondary">
+    {% blocktranslate trimmed with count=values|length %}
+    Top {{ count }} Best Selling Items
+    {% endblocktranslate %}
+    </h1>
+  <div class="position-relative">
+    <canvas id="top_items"></canvas>
+  </div>
+</div>
+
+<script defer>
+  new Chart(document.getElementById("top_items").getContext("2d"), {
+    type: "doughnut",
+    data: {
+      labels: {{ labels|json|safe }},
+      datasets: [
+        {
+          label: "{{_('Orders received')}}",
+          data: {{ values|json|safe }},
+          hoverOffset: 4,
+        },
+      ],
+    },
+    options: { 
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1,
+      plugins: {
+        legend: { position: 'right' }
+      }
+    },
+  });
+</script>

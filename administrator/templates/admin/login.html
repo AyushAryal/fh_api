@@ -1,0 +1,22 @@
+{% extends 'admin/login.html' %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+body.login {
+  background-image: linear-gradient(var(--primary), var(--secondary));
+  background-size: cover;
+}
+
+body.login #content {
+  min-height: auto;
+}
+
+#content-main {
+  padding-bottom: 1rem;
+}
+</style>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

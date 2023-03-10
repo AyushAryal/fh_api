@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-03 16:03+0545\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\apps.py:8
+msgid "Authentication"
+msgstr "अनुमति"
+
+#: .\hooks.py:9
+msgid "Unverified email"
+msgstr "अप्रमाणित ईमेल"
+
+#: .\models.py:42
+msgid "user"
+msgstr "प्रयोग कर्ता"
+
+#: .\models.py:43
+msgid "users"
+msgstr "प्रयोगकर्ताहरू"
+
+#: .\models.py:45 .\serializers.py:79
+msgid "Email"
+msgstr "इमेज"
+
+#: .\models.py:47
+msgid "Email verified"
+msgstr "ईमेल प्रमाणित"
+
+#: .\models.py:48
+msgid "User has verified their email address"
+msgstr "प्रयोगकर्ताले उनीहरूको ईमेल ठेगाना प्रमाणित गरेको छ"
+
+#: .\serializers.py:22
+msgid "New email"
+msgstr "नयाँ इमेल"
+
+#: .\serializers.py:33 .\serializers.py:64
+msgid "Password doesn't match"
+msgstr "पासवर्ड मेल खाँदैन"
+
+#: .\serializers.py:38
+msgid "Email already registered"
+msgstr "ईमेल पहिले नै दर्ता गरिएको छ"
+
+#: .\serializers.py:52
+msgid "New password"
+msgstr "नया पासवर्ड"
+
+#: .\serializers.py:83
+msgid "Password"
+msgstr "संकेत शब्द"
+
+#: .\serializers.py:89
+msgid "Token"
+msgstr "टोकन"
+
+#: .\views.py:113
+msgid "Email has already been verified"
+msgstr "ईमेल पहिले नै प्रमाणित गरिएको छ"
+
+#: .\views.py:142
+msgid "Email doesn't exist"
+msgstr "ईमेल अवस्थित छैन"
+
+#: .\views.py:156
+msgid "Invalid/Expired token"
+msgstr "अवैध / म्याद सकिएको टोकन"
+
+#: .\views.py:271
+msgid "Unauthenticated"
+msgstr "अप्रमाणित"

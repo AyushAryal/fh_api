@@ -1,0 +1,13 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block content %}
+<div hx-get="{% url 'admin:brief_info' %}" hx-trigger="revealed" hx-swap="outerHTML"></div>
+<h1 class="mt-5 d-flex flex-wrap gap-3 align-items-center"><i class="fa-solid fa-chart-line"></i>{% translate "Performance at a glance" %}</h1>
+<div class="mt-5 p-0 d-flex flex-wrap align-items-start justify-content-around gap-5">
+    <div hx-get="{% url 'admin:recent_orders' 30 %}" hx-trigger="revealed" hx-swap="outerHTML"></div>
+    <div hx-get="{% url 'admin:top_items' 10 %}" hx-trigger="revealed" hx-swap="outerHTML"></div>
+    <div hx-get="{% url 'admin:top_categories' 10 %}" hx-trigger="revealed" hx-swap="outerHTML"></div>
+    <div hx-get="{% url 'admin:user_activity' 30 %}" hx-trigger="revealed" hx-swap="outerHTML"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+*.pyc
+__pycache__/
+db.sqlite3
+*.mo
+media/
+/logs/*
+.env
+staticfiles/
+node_modules/
+.parcel-cache/
+administrator/static/admin/dist

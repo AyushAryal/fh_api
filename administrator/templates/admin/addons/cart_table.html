@@ -1,0 +1,22 @@
+{% extends 'admin/addons/collapsable_table_base.html' %}
+{% load i18n %}
+{% block content %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>{{_("Item")}}</td>
+            <td>{{_("Variant")}}</td>
+            <td>{{_("Quantity")}}</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in instance.items.all %}
+    <tr>
+        <td> {{ entity.item_variant.item }} </td>
+        <td> {{ entity.item_variant.color }} </td>
+        <td> {{ entity.quantity }} </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

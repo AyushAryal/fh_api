@@ -1,0 +1,13 @@
+{% extends 'emails/base_email.html' %}
+{% load salutation_name %}
+
+{% block content %}
+<div style="font-size: 1rem">Dear <b>{{ user|salutation_name }}</b>,</div>
+<div style="margin-top: 1.5rem">Thank you for your registration.</div>
+<br />
+
+<div style="margin-bottom: 1rem">
+  Your registration request has been sent. We will get in touch with you soon.
+  Please feel free to contact us for further queries.
+</div>
+{% endblock %}

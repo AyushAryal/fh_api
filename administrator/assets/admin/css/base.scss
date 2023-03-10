@@ -1,0 +1,34 @@
+$primary: #708a54;
+$secondary: #f1582a;
+
+@import "~bootstrap/scss/bootstrap";
+
+:root {
+  --primary: #{$secondary};
+  --secondary: #{$primary};
+  --breadcrumbs-fg: var(--body-quiet-color);
+  --breadcrumbs-link-fg: var(--body-bg);
+  --breadcrumbs-bg: #{$dark};
+  --link-fg: #{$link-color};
+  --link-hover-color: #{$link-hover-color};
+  --link-selected-fg: #{$link-hover-color};
+  --close-button-bg: #{$dark};
+  --close-button-hover-bg: #{$gray-800};
+}
+
+#content {
+  min-height: 100vh;
+}
+
+[x-cloak] {
+  display: none;
+}
+
+/* Fixes for bootstrap */
+
+a.deletelink,
+.cancel-link,
+#searchbar,
+select {
+  height: auto !important;
+}

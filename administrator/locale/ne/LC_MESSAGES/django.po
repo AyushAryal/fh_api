@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-03 16:02+0545\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\admin.py:12
+msgid "Dashboard"
+msgstr "ड्यासबोर्ड"
+
+#: .\admin.py:13
+msgid "Admin Dashboard"
+msgstr "प्रशासन ड्यासबोर्ड"
+
+#: .\apps.py:8
+msgid "Administrator"
+msgstr "प्रशासक"
+
+#: .\models.py:48
+msgid "color"
+msgstr "रंग"
+
+#: .\models.py:84
+msgid "state"
+msgstr "अवस्था"
+
+#: .\models.py:94 .\models.py:118 .\models.py:138
+msgid "details"
+msgstr "विवरण"
+
+#: .\models.py:114
+msgid "email"
+msgstr "इमेज"
+
+#: .\models.py:164
+msgid "Personal info"
+msgstr "व्यक्तिगत जानकारी"
+
+#: .\models.py:166
+msgid "Permissions"
+msgstr "अनुमति"
+
+#: .\models.py:175
+msgid "Important dates"
+msgstr "महत्त्वपूर्ण मितिहरू"
+
+#: .\models.py:189
+msgid "user type"
+msgstr "प्रयोगकर्ताको प्रकार"
+
+#: .\models.py:192
+msgid "Admin"
+msgstr "प्रशावेसन"
+
+#: .\models.py:194
+msgid "Customer"
+msgstr "ग्राहक"
+
+#: .\models.py:195
+msgid "None"
+msgstr "केहि होइन"
+
+
+#: .\templates\admin\actions.html:29
+msgid "Run the selected action"
+msgstr "चयन गरिएको कार्य चलाउनुहोस्"
+
+#: .\templates\admin\actions.html:29
+msgid "Go"
+msgstr "जानु"
+
+#: .\templates\admin\actions.html:40
+msgid "Click here to select the objects across all pages"
+msgstr "सबै पृष्ठहरूमा वस्तुहरू चयन गर्न यहाँ क्लिक गर्नुहोस्"
+
+#: .\templates\admin\actions.html:40
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr "%(total_count)s %(module_name)s सबै छान्नु "
+
+#: .\templates\admin\actions.html:42
+msgid "Clear selection"
+msgstr "स्पष्ट चयन"
+
+#: .\templates\admin\addons\cart_table.html:7
+#: .\templates\admin\addons\order_table.html:7
+#: .\templates\admin\addons\wishlist_table.html:7
+msgid "Item"
+msgstr "चिज"
+
+#: .\templates\admin\addons\cart_table.html:8
+#: .\templates\admin\addons\order_table.html:8
+#: .\templates\admin\addons\wishlist_table.html:8
+msgid "Variant"
+msgstr "विविध"
+
+#: .\templates\admin\addons\cart_table.html:9
+#: .\templates\admin\addons\order_table.html:9
+msgid "Quantity"
+msgstr "मात्रा"
+
+#: .\templates\admin\addons\index\charts\recent_orders.html:4
+#, python-format
+msgid "Orders in the last %(days)s days"
+msgstr "%(days)s अन्तिम दिनहरूमा बिलहरू"
+
+#: .\templates\admin\addons\index\charts\recent_orders.html:17
+#: .\templates\admin\addons\index\charts\user_activity.html:17
+msgid "Today"
+msgstr "आज"
+
+#: .\templates\admin\addons\index\charts\recent_orders.html:20
+#: .\templates\admin\addons\index\charts\recent_orders.html:41
+msgid "Orders"
+msgstr "बिल"
+
+#: .\templates\admin\addons\index\charts\recent_orders.html:35
+#: .\templates\admin\addons\index\charts\user_activity.html:35
+msgid "Day before today"
+msgstr "आज दिन"
+
+#: .\templates\admin\addons\index\charts\top_categories.html:3
+msgid "Most popular categories"
+msgstr "धेरै लोकप्रिय कोटीहरू"
+
+#: .\templates\admin\addons\index\charts\top_categories.html:16
+#: .\templates\admin\addons\index\charts\top_items.html:20
+msgid "Orders received"
+msgstr "बिल प्राप्त"
+
+#: .\templates\admin\addons\index\charts\top_items.html:4
+#, python-format
+msgid "Top %(count)s Best Selling Items"
+msgstr "%(count)s सबै भन्दा राम्रो बेच्ने वस्तुहरू"
+
+#: .\templates\admin\addons\index\charts\user_activity.html:4
+#, python-format
+msgid "User registrations (%(days)s days)"
+msgstr "प्रयोगकर्ता पंजीकरण (%(days)s दिन)"
+
+#: .\templates\admin\addons\index\charts\user_activity.html:20
+#: .\templates\admin\addons\index\charts\user_activity.html:41
+msgid "New Users"
+msgstr "नयाँ प्रयोगकर्ताहरू"
+
+#: .\templates\admin\app_list.html:50 .\templates\admin\app_list.html:57
+msgid "Home"
+msgstr "गृह"
+
+#: .\templates\admin\base_site.html:81
+msgid "Ayush Aryal"
+msgstr "आयुष अर्याल"
+
+#: .\templates\admin\base_site.html:81
+#, python-format
+msgid "Engineered by %(name)s"
+msgstr "%(name)s द्वारा ईन्जिनियर गरिएको"
+
+#: .\templates\admin\index.html:6
+msgid "Performance at a glance"
+msgstr "एक नजरमा प्रदर्शन"
+
+#: .\templates\admin\search_form.html:30 .\templates\admin\search_form.html:32
+msgid "Search"
+msgstr "खोजी"
+
+#: .\templates\admin\search_form.html:45
+#, python-format
+msgid "%(counter)s result"
+msgid_plural "%(counter)s results"
+msgstr[0] "%(counter)s परिणाम"
+msgstr[1] "%(counter)s परिणामहरु"
+
+#: .\templates\admin\search_form.html:45
+#, python-format
+msgid "%(full_result_count)s total"
+msgstr "%(full_result_count)s कुल"
+
+#: .\templates\admin\search_form.html:45
+msgid "Show all"
+msgstr "सबै देखाऊ"
+
+#: .\views.py:20
+msgid "Pending User Requests"
+msgstr "प्रयोगकर्ता अनुरोधहरू"
+
+#: .\views.py:24
+msgid "Pending Orders"
+msgstr "बिलहरू पेन्डिंग"
+
+#: .\views.py:28
+msgid "Completed Orders"
+msgstr "पूर्ण बिलहरू"
+
+#: .\views.py:32
+msgid "Active Users"
+msgstr "सक्रिय प्रयोगकर्ताहरू"

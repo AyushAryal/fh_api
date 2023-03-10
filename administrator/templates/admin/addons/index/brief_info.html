@@ -1,0 +1,13 @@
+<div class="mt-5 pt-2 d-flex flex-row gap-5 flex-wrap justify-content-around">
+    {% for info in infos %}
+    <div class="card text-white bg-primary mb-3 flex-grow-1 shadow" style="max-width: 20rem;">
+        <div class="card-body d-flex flex-column align-items-center">
+            <h5 class="card-title text-white">{{ info.title }}</h5>
+            <span class="card-text display-1 mx-auto">
+                <i class="fa-solid {{ info.icon }}"></i>
+                {{ info.statistic }}
+            </span>
+        </div>
+    </div>
+    {% endfor %}
+</div>

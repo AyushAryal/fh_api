@@ -1,0 +1,33 @@
+{% extends 'emails/base_email.html' %}
+{% load salutation_name %}
+
+{% block content %}
+<div style="font-size: 1rem">Dear <b>{{ user|salutation_name }}</b>,</div>
+<div style="margin-top: 1.5rem">
+  You attempted to register on
+  <a
+    href="https://{{ site.domain }}"
+    style="cursor: pointer; color: #563b18; text-decoration: underline"
+  >
+    {{ site.name }}
+  </a>.
+  Please click the link below to verify your email address.
+</div>
+<br />
+
+<div
+  style="margin: 1.5rem auto 2rem auto; text-align: center; font-size: 0.9rem"
+>
+  <a
+    href="{{ link }}"
+    style="cursor: pointer; color: #563b18; text-decoration: underline"
+  >
+    Verify your email
+  </a>
+</div>
+
+<div style="margin: 1.5rem auto 2rem auto; font-size: 0.9rem">
+  If you did not create an account, no further action is required.
+</div>
+
+{% endblock %}
