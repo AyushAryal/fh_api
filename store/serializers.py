@@ -1,4 +1,5 @@
 from django.db import transaction
+from django.db.models import Avg
 from django.contrib.auth.password_validation import validate_password
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
@@ -21,6 +22,7 @@ from store.models import (
     Order,
     OrderStatus,
     BannerImage,
+    Rating,
 )
 from authentication.serializers import UserSerializer
 
@@ -88,6 +90,11 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
     variants = ItemVariantSerializer(many=True)
     categories = CategorySerializer(many=True)
     user = UserSerializer(required=False)
+    rating = serializers.SerializerMethodField()
+
+    def get_rating(self, item):
+        ratings = Rating.objects.filter(item=item).aggregate(Avg("rating"))
+        return ratings["rating__avg"] or 0.0
 
     class Meta:
         model = Item

@@ -33,6 +33,7 @@ from .models import (
     BannerImage,
     Purchase,
     Category,
+    Rating,
 )
 
 
@@ -175,6 +176,50 @@ class ItemViewSet(
     filter_backends = (DjangoFilterBackend, filters.SearchFilter)
     filterset_fields = ("categories", "recommend")
     search_fields = ("name", "description")
+
+    def get_permissions(self):
+        permissions_classes = {
+            "list": [permissions.AllowAny],
+            "retrieve": [permissions.AllowAny],
+            "recommend": [permissions.AllowAny],
+            "get_user_rating": [permissions.IsAuthenticated],
+            "rating": [permissions.IsAuthenticated],
+        }.get(self.action, [permissions.AllowAny])
+        return (permission() for permission in permissions_classes)
+
+    @action(detail=True, methods=["get"])
+    def get_user_rating(self, request, pk=None):
+        item = Item.objects.get(pk=pk)
+        rating = Rating.objects.filter(user=request.user, item=item).first()
+        if rating:
+            return Response(rating.rating)
+        return Response(
+            {"detail": _("Rating for this item doesn't exist")},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+    @action(detail=True, methods=["post"])
+    def rating(self, request, pk=None):
+        item = Item.objects.get(pk=pk)
+        try:
+            _rating = int(request.body)
+            if _rating < 0 or _rating > 5:
+                return Response(
+                    {"detail": "Rating must be a integer [0-5]"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            rating = Rating.objects.filter(item=item, user=request.user).first()
+            if rating:
+                rating.rating = _rating
+                rating.save()
+            else:
+                Rating.objects.create(item=item, user=request.user, rating=_rating)
+            return Response()
+        except ValueError:
+            return Response(
+                {"detail": "Send a valid integer"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
     @action(detail=True, methods=["get"])
     def recommend(self, request, pk=None):
