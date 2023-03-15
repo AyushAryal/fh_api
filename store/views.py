@@ -164,7 +164,7 @@ class ItemViewSet(
 
     ---
 
-    ## GET /item/*id*/recommend/
+    ## GET /item/recommend/
 
     Get items similar to this
 
@@ -181,7 +181,7 @@ class ItemViewSet(
         permissions_classes = {
             "list": [permissions.AllowAny],
             "retrieve": [permissions.AllowAny],
-            "recommend": [permissions.AllowAny],
+            "recommend": [permissions.IsAuthenticated],
             "get_user_rating": [permissions.IsAuthenticated],
             "rating": [permissions.IsAuthenticated],
         }.get(self.action, [permissions.AllowAny])
@@ -221,23 +221,30 @@ class ItemViewSet(
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-    @action(detail=True, methods=["get"])
-    def recommend(self, request, pk=None):
-        item = Item.objects.get(pk=pk)
-        queryset = Item.objects.all().exclude(pk=pk)
-        if item.categories.all().exists():
-            queryset = queryset.filter(categories__in=item.categories.all())
+    @action(detail=False, methods=["get"])
+    def recommend(self, request):
+        if not getattr(request.user, "customer", None):
+            return Response(
+                {"detail": "Must be a customer"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
-        # WARN: Bad performance to SORT BY RAND().
-        # This endpoint itself is not great.
-        # If this ever becomes an issue,
-        # then write an ACTUAL recommendation system.
-        queryset = queryset.order_by("?")
+        import numpy as np
+        from django.db import models
+        from .recommender import Recommender
 
-        queryset, self.queryset = self.queryset, queryset
-        response = self.list(request=request)
-        queryset, self.queryset = self.queryset, queryset
-        return response
+        num_users = (
+            get_user_model().objects.all().aggregate(models.Max("id")).get("id__max", 0)
+        )
+        num_items = Item.objects.all().aggregate(models.Max("id")).get("id__max", 0)
+        ratings = np.zeros((num_users + 1, num_items + 1))
+        for rating in Rating.objects.all():
+            ratings[rating.user.pk, rating.item.pk] = rating.rating
+
+        recommender = Recommender(ratings)
+        recommendations = recommender.recommend(request.user.pk)[:10]
+
+        return Response(recommendations)
 
 
 class OrderViewSet(

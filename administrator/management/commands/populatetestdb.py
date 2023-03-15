@@ -23,6 +23,7 @@ from store.models import (
     Order,
     OrderStatus,
     Purchase,
+    Rating,
 )
 
 
@@ -55,6 +56,8 @@ class Command(BaseCommand):
             user = self.create_customer(details=customer_details)
             self.create_random_transactions(user=user, size=5)
             self.create_random_cart(user=user, size=5)
+
+        self.create_random_ratings()
 
     def get_image_filename(self, item_id, variant_id):
         return f"res/downloaded_images/{item_id}_{variant_id}.webp"
@@ -256,6 +259,19 @@ class Command(BaseCommand):
                     quantity=random.randint(1, 10),
                 )
         self.stdout.write(self.style.SUCCESS(f"Created {size} random orders"))
+
+    def create_random_ratings(self):
+        for item in Item.objects.all():
+            customers = CustomerProfile.objects.all()
+            for customer in customers:
+                p = 0.5
+                if random.random() < p:
+                    Rating.objects.create(
+                        user=customer.user,
+                        item=item,
+                        rating=random.randint(1, 6),
+                    )
+        self.stdout.write(self.style.SUCCESS("Created random ratings"))
 
     def create_random_cart(self, user, size=1):
         for item_variant in random.sample(list(ItemVariant.objects.all()), 5):

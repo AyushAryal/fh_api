@@ -91,17 +91,3 @@ class ItemTest(TestCase):
         request = factory.get("/item/1/get_user_rating/")
         response = view(request, pk=self.item.pk)
         self.assertNotEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_get_item_recommend(self):
-        factory = APIRequestFactory()
-        view = ItemViewSet.as_view({"get": "recommend"})
-
-        request = factory.get("/item/1/recommend/")
-        response = view(request, pk=self.item.pk)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["count"], 0)
-
-        Item.objects.create(user=self.merchant, name="Name", description="description")
-        request = factory.get("/item/1/recommend/")
-        response = view(request, pk=self.item.pk)
-        self.assertEqual(response.data["count"], 1)
