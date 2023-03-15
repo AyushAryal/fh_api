@@ -269,7 +269,7 @@ class Command(BaseCommand):
                     Rating.objects.create(
                         user=customer.user,
                         item=item,
-                        rating=random.randint(1, 6),
+                        rating=random.randint(1, 5),
                     )
         self.stdout.write(self.style.SUCCESS("Created random ratings"))
 
