@@ -75,9 +75,13 @@ class Command(BaseCommand):
                     filename = self.get_image_filename(item_id, variant_id)
                     if not isfile(filename):
                         try:
+                            
                             response = urllib.request.urlopen(
                                 urllib.request.Request(
-                                    url, headers={"User-Agent": "Mozilla/5.0"}
+                                    url, headers={
+                                        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/111.0",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*"
+                                    }
                                 )
                             )
                             image = Image.open(io.BytesIO(response.read()))

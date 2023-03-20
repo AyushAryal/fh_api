@@ -9,4 +9,4 @@ staticfiles/
 node_modules/
 .parcel-cache/
 administrator/static/admin/dist
-res/downloaded_images/
+res/downloaded_images/*.webp
