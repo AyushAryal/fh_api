@@ -121,6 +121,7 @@ class Command(BaseCommand):
         user = get_user_model().objects.create_user(
             password=details["password"],
             email=details["email"],
+            email_verified=True,
             date_joined=timezone.now() - timedelta(days=random.randint(0, 10)),
         )
         user.save()
@@ -214,6 +215,7 @@ class Command(BaseCommand):
         user = get_user_model().objects.create_user(
             password=details["password"],
             email=details["email"],
+            email_verified=True,
             date_joined=timezone.now() - timedelta(days=random.randint(0, 10)),
         )
         user.save()
@@ -236,7 +238,9 @@ class Command(BaseCommand):
 
     def create_super_user(self, email, password):
         user = get_user_model().objects.create_user(
-            password=password, email=email, email_verified=True
+            password=password,
+            email=email,
+            email_verified=True,
         )
         user.is_superuser = True
         user.is_staff = True
