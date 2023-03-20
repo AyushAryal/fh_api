@@ -252,4 +252,6 @@ class UserAdmin(BaseUserAdmin):
             return _("Admin")
         elif hasattr(user, "customer"):
             return _("Customer")
+        elif hasattr(user, "merchant"):
+            return _("Merchant")
         return _("None")

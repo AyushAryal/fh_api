@@ -41,8 +41,18 @@ class CustomerProfileSerializer(serializers.ModelSerializer):
         )
 
 
+class SignupCustomerProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomerProfile
+        fields = (
+            "first_name",
+            "last_name",
+            "address",
+            "contact",
+        )
+
 class SignupSerializer(serializers.ModelSerializer):
-    customer = CustomerProfileSerializer()
+    customer = SignupCustomerProfileSerializer()
 
     class Meta:
         model = get_user_model()

@@ -337,6 +337,7 @@ class BannerImage(models.Model):
     class Meta:
         verbose_name = _("Banner image")
         verbose_name_plural = _("Banner images")
+        ordering = ("-id",)
 
     image = models.ImageField(
         upload_to="uploads/images/banners/", verbose_name=_("image")
