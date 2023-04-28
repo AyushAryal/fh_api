@@ -18,6 +18,7 @@ from .serializers import (
     CustomerProfileSerializer,
     SignupSerializer,
     ItemSerializer,
+    ItemAddSerializer,
     OrderSerializer,
     CartSerializer,
     WishlistSerializer,
@@ -145,7 +146,7 @@ class CustomerProfileViewSet(
 
 
 class ItemViewSet(
-    mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet
+    mixins.ListModelMixin, mixins.CreateModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet
 ):
     """
     Endpoint for the Item resource.
@@ -166,7 +167,13 @@ class ItemViewSet(
 
     ## GET /item/recommend/
 
-    Get items similar to this
+    Get items from user preference
+
+    ---
+
+    ## POST /item/
+
+    Create new items (for merchants only)
 
     ---
     """
@@ -177,15 +184,24 @@ class ItemViewSet(
     filterset_fields = ("categories", "recommend")
     search_fields = ("name", "description")
 
+    def get_serializer_class(self):
+        return {
+            "create": ItemAddSerializer,
+        }.get(self.action, super().get_serializer_class())
+
     def get_permissions(self):
         permissions_classes = {
             "list": [permissions.AllowAny],
+            "create": [store_permissions.IsMerchant],
             "retrieve": [permissions.AllowAny],
             "recommend": [permissions.IsAuthenticated],
             "get_user_rating": [permissions.IsAuthenticated],
             "rating": [permissions.IsAuthenticated],
         }.get(self.action, [permissions.AllowAny])
         return (permission() for permission in permissions_classes)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
     @action(detail=True, methods=["get"])
     def get_user_rating(self, request, pk=None):

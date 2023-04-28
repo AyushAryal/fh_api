@@ -8,6 +8,11 @@ class IsCustomer(BasePermission):
         return hasattr(request.user, "customer")
 
 
+class IsMerchant(BasePermission):
+    def has_permission(self, request, _):
+        return hasattr(request.user, "merchant")
+
+
 class IsOwner(IsAuthenticated):
     def has_object_permission(self, request, view, obj):
         return request.user.is_superuser or {

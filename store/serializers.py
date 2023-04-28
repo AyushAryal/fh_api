@@ -51,6 +51,7 @@ class SignupCustomerProfileSerializer(serializers.ModelSerializer):
             "contact",
         )
 
+
 class SignupSerializer(serializers.ModelSerializer):
     customer = SignupCustomerProfileSerializer()
 
@@ -109,6 +110,16 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Item
         fields = "__all__"
+        extra_kwargs = {"url": {"view_name": "api:item-detail"}}
+
+
+class ItemAddSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        return Item.objects.create(**validated_data)
+
+    class Meta:
+        model = Item
+        exclude = ('user', 'categories')
         extra_kwargs = {"url": {"view_name": "api:item-detail"}}
 
 
