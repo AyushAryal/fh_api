@@ -18,12 +18,12 @@ class Recommender:
         return _a.dot(_b) / mag if mag != 0 else 0.5
 
     def _calculate_similarity_matrix(self):
-        user = self.ratings.shape[0]
-        m = np.zeros((user, user))
-        for i, a in enumerate(self.ratings):
-            for j, b in enumerate(self.ratings):
-                m[i, j] = Recommender._similarity(a, b)
-        self.sim_mat = m
+        num_users = self.ratings.shape[0]
+        similarity_matrix = np.zeros((num_users, num_users))
+        for user_id_a, ratings_by_user_a in enumerate(self.ratings):
+            for user_id_b, ratings_by_user_b in enumerate(self.ratings):
+                similarity_matrix[user_id_a, user_id_b] = Recommender._similarity(ratings_by_user_a, ratings_by_user_b)
+        self.sim_mat = similarity_matrix
 
     def _estimate_ratings(self, user_id):
         weights = self.sim_mat[user_id].reshape((self.sim_mat[user_id].shape[0], 1))
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     ITEMS = 10
 
     ratings = np.arange(0, USERS * ITEMS)
-    f = np.vectorize(lambda _: random.randint(1, 6) if random.randint(0, 9) < 5 else 0)
+    f = np.vectorize(lambda _: random.randint(1, 5) if random.randint(0, 9) < 5 else 0)
     ratings = f(ratings).reshape((USERS, ITEMS))
     print(ratings)
 
